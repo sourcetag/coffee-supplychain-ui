@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/imperialsofetch.png">
+    <title>sourcetrack.co</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="plugins/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
+    <link href="plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+    <link href="css/sweetAlert.css" id="theme" rel="stylesheet">
+    <link href="plugins/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <!-- Popup CSS -->
+    <link href="plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/parsley.css">
+    <link href="plugins/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="plugins/bower_components/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+    .float-right {
+        float: right;
+    }
+
+    .parsley-required,
+    .red {
+        color: red;
+    }
+    </style>
+    <!-- <script src="http://www.w3schools.com/lib/w3data.js"></script> -->
+    <!-- jQuery -->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <style>
+    body .navbar-header {
+        background: #fff;
+    }
+
+    body .navbar-header .logo {
+        color: #252525;
+    }
+    </style>
+    <script>
+    function q(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
+    </script>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0 sidebar">
+            <div class="navbar-header">
+                <div class="top-left-part"><a class="logo" href="index.php"><b><img width="30" src="plugins/images/logo.png" alt="home" /></b><span class="hidden-xs"> sourcetrack.co</span></a></div>
+            </div>
+        </nav>
+        <!-- Left navbar-header -->
+        <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+<style type="text/css">
+    .verified_info{
+        color: green;
+    }
+    .white-box{
+        padding: 0; 
+        background: #edf1f5;
+    }
+    .no-gutters {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+    .timeline>li>.timeline-panel{
+        background-color: #fff;
+        color: #2b2b2b;
+    }
+    .timeline:before {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    .activityQrCode{
+        margin: 20px 0;
+    }
+    .table>tbody>tr:first-child>td{
+        border-top: none;
+    }
+    .activityDateTime{
+        font-size: 12px;
+    }
+    .activityDateTime .text-info{
+        overflow: hidden;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row bg-title">
+        <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+            <h3 class="page-title">Batch Progress <a href="javascript:void(0);" onclick="javascript:window.print();" class="text-info" title="Print Page Report"><i class="fa fa-print"></i> Print</a></h3> 
+            <div class="page-batch-infomation">
+            <h4>Batch No:</h4>
+            <p class="batchNo"></p>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+        <!-- .row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-box">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge danger">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="timeline-panel" id="cultivationSection">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">การเพาะปลูก</h4>
+                                    <div class="text-muted text-success activityDateTime"></div>
+                                </div>
+                                <div>
+                                    <div class="activityQrCode text-center"></div>
+                                </div>
+                                <div class="timeline-body">
+                                    <table class="table activityData table-responsive" >
+                                        <tr>
+                                            <td colspan="2"><p>Information Not Avilable</p></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="verify-information text-right"></div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger">
+                                <i class="fa fa-times"></i>
+                            </div>
+                            <div class="timeline-panel" id="farmInspectionSection">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Farm-Inspector</h4>
+                                    <div class="text-muted text-success activityDateTime"></div>
+                                </div>
+                                <div>
+                                    <div class="activityQrCode text-center"></div>
+                                </div>
+                                <div class="timeline-body">
+                                    <table class="table activityData table-responsive">
+                                        <tr>
+                                            <td colspan="2"><p>Information Not Avilable</p></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="verify-information text-right"></div>
+                            </div>
+                        </li>
+                        <li>
+                           <div class="timeline-badge danger">
+                                <i class="fa fa-times"></i>
+                            </div>
+                            <div class="timeline-panel" id="harvesterSection">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">การเก็บเกี่ยว</h4>
+                                    <div class="text-muted text-success activityDateTime"></div>
+                                </div>
+                                <div>
+                                    <div class="activityQrCode text-center"></div>
+                                </div>
+                                <div class="timeline-body">
+                                    <table class="table activityData table-responsive" >
+                                        <tr>
+                                            <td colspan="2"><p>Information Not Avilable</p></td>
+                                        </tr>
+                                    </table>        
+                                </div>
+                                <div class="verify-information text-right"></div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger">
+                                <i class="fa fa-times"></i>
+                            </div>
+                            <div class="timeline-panel" id="exporterSection"> 
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">การส่งออก</h4>
+                                    <div class="text-muted text-success activityDateTime"></div>
+                                </div>
+                                <div>
+                                    <div class="activityQrCode text-center"></div>
+                                </div>
+                                <div class="timeline-body">
+                                    <table class="table activityData table-responsive">
+                                        <tr>
+                                            <td colspan="2"><p>Information Not Avilable</p></td>
+                                        </tr>
+                                    </table>  
+                                </div>
+                                <div class="verify-information text-right"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge danger">
+                                <i class="fa fa-times"></i>
+                            </div>
+                            <div class="timeline-panel" id="importerSection">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">การนำเข้า</h4>
+                                    <div class="text-muted text-success activityDateTime"></div>
+                                </div>
+                                <div>
+                                    <div class="activityQrCode text-center"></div>
+                                </div>
+                                <div class="timeline-body">
+                                   <table class="table activityData table-responsive" >
+                                        <tr>
+                                            <td colspan="2"><p>Information Not Avilable</p></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="verify-information text-right"></div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-badge danger">
+                                <i class="fa fa-times"></i>
+                            </div>
+                            <div class="timeline-panel" id="processorSection">
+                                <div class="timeline-heading">
+                                    <h4 class="timeline-title">Processor</h4>
+                                    <div class="text-muted text-success activityDateTime"></div>
+                                </div>
+                                <div>
+                                    <div class="activityQrCode text-center"></div>
+                                </div>
+                                <div class="timeline-body">
+                                    <table class="table activityData table-responsive" >
+                                        <tr>
+                                            <td colspan="2"><p>Information Not Avilable</p></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="verify-information text-right"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- .right-sidebar -->
+        <div class="right-sidebar">
+            <div class="slimscrollright">
+                <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+                <div class="r-panel-body">
+                    <ul>
+                        <li><b>Layout Options</b></li>
+                        <li>
+                            <div class="checkbox checkbox-info">
+                                <input id="checkbox1" type="checkbox" class="fxhdr">
+                                <label for="checkbox1"> Fix Header </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox checkbox-warning">
+                                <input id="checkbox2" type="checkbox" checked="" class="fxsdr">
+                                <label for="checkbox2"> Fix Sidebar </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox checkbox-success">
+                                <input id="checkbox4" type="checkbox" class="open-close">
+                                <label for="checkbox4"> Toggle Sidebar </label>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="themecolors" class="m-t-20">
+                        <li><b>With Light sidebar</b></li>
+                        <li><a href="javascript:void(0)" theme="default" class="default-theme">1</a></li>
+                        <li><a href="javascript:void(0)" theme="green" class="green-theme">2</a></li>
+                        <li><a href="javascript:void(0)" theme="gray" class="yellow-theme">3</a></li>
+                        <li><a href="javascript:void(0)" theme="blue" class="blue-theme">4</a></li>
+                        <li><a href="javascript:void(0)" theme="purple" class="purple-theme">5</a></li>
+                        <li><a href="javascript:void(0)" theme="megna" class="megna-theme working">6</a></li>
+                        <li><b>With Dark sidebar</b></li>
+                        <br/>
+                        <li><a href="javascript:void(0)" theme="default-dark" class="default-dark-theme">7</a></li>
+                        <li><a href="javascript:void(0)" theme="green-dark" class="green-dark-theme">8</a></li>
+                        <li><a href="javascript:void(0)" theme="gray-dark" class="yellow-dark-theme">9</a></li>
+                        <li><a href="javascript:void(0)" theme="blue-dark" class="blue-dark-theme">10</a></li>
+                        <li><a href="javascript:void(0)" theme="purple-dark" class="purple-dark-theme">11</a></li>
+                        <li><a href="javascript:void(0)" theme="megna-dark" class="megna-dark-theme">12</a></li>
+                    </ul>
+                    <ul class="m-t-20 chatonline">
+                        <li><b>Chat option</b></li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="plugins/images/users/varun.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="plugins/images/users/genu.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="plugins/images/users/ritesh.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="plugins/images/users/arijit.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="plugins/images/users/govinda.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="plugins/images/users/hritik.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="plugins/images/users/john.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="plugins/images/users/pawandeep.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /.right-sidebar -->
+</div>
+<input type="hidden" id="batchNo" value="">
+<script>
+    $(function(){
+        let batchNo = q("batchNo");
+        $("#batchNo").val(batchNo);
+        $(".batchNo").html(batchNo);
+    })
+</script>
+
+        <footer class="footer text-center"> 
+            © 2020 SupplyChain Traceability by <a href="https://exp.tch.in.th" target="_blank">THAICHAIN</a> 
+        </footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="plugins/bower_components/bootstrap/dist/js/tether.min.js"></script>
+    <script src="plugins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+    <script type="text/javascript" src="plugins/bower_components/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="plugins/bower_components/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
+    <script src="plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!--Morris JavaScript -->
+<!--     <script src="plugins/bower_components/raphael/raphael-min.js"></script> -->
+<!--     <script src="plugins/bower_components/morrisjs/morris.js"></script> -->
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/dashboard1.js"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+
+     <!-- Magnific popup JavaScript -->
+    <script src="plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+    <script src="plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
+
+    <script type="text/javascript" src="js/parsley.min.js"></script>
+    <script type="text/javascript" src="js/sweetAlert.js"></script>
+
+    <!--  contract abi  -->
+    <script type="text/javascript" src="js/web3.min.js"></script>
+    <script type="text/javascript" src="js/abi/CoffeeSupplyChainAbi.js"></script>
+    <script type="text/javascript" src="js/abi/SupplyChainUserAbi.js"></script>
+
+
+    <!-- ipfs  -->
+
+    <!-- <script src="https://wzrd.in/standalone/buffer"></script> -->
+    <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/app/app.js"></script>
+    
+    <script type="text/javascript" src="js/app/batch-details.js"></script>
+    <script type="text/javascript">
+        $('.qr-code-magnify').magnificPopup({
+              type:'image',
+              mainClass: 'mfp-zoom-in'
+        });
+    </script>
+
+    <!--Style Switcher -->
+    <script src="plugins/bower_components/switchery/dist/switchery.min.js"></script>
+
+</body>
+
+</html>
+ 

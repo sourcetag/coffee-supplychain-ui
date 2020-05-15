@@ -1,9 +1,8 @@
-
 var fileinclude = require('gulp-file-include'),
 gulp = require('gulp');
  
 gulp.task('default', function(done) {
-  gulp.src(['index.html','admin.html','user.html'])
+  gulp.src(['index.html','admin.html','user.html','view-batch.html'])
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'

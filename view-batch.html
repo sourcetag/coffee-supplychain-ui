@@ -1,10 +1,4 @@
-<?php include('templates/_header.php');?>
-<?php 
-     if(!isset($_GET['batchNo']) || (isset($_GET['batchNo']) && $_GET['batchNo']=='') &&
-        !isset($_GET['txn']) || (isset($_GET['txn']) && $_GET['txn']=='')){
-        echo "<script>window.location = 'index.php';</script>";
-     }   
-?>
+@@include('./templates/_header.html')
 <style type="text/css">
     .verified_info{
         color: green;
@@ -43,7 +37,7 @@
             <h3 class="page-title">Batch Progress <a href="javascript:void(0);" onclick="javascript:window.print();" class="text-info" title="Print Page Report"><i class="fa fa-print"></i> Print</a></h3> 
             <div class="page-batch-infomation">
             <h4>Batch No:</h4>
-            <p><?php echo $_GET['batchNo'];?></p>
+            <p class="batchNo"></p>
             </div>
         </div>
         <!-- /.col-lg-12 -->
@@ -265,6 +259,13 @@
         </div>
         <!-- /.right-sidebar -->
 </div>
-<input type="hidden" id="batchNo" value="<?php $batchNo = isset($_GET['batchNo'])?$_GET['batchNo']:''; echo $batchNo;?>">
+<input type="hidden" id="batchNo" value="">
+<script>
+    $(function(){
+        let batchNo = q("batchNo");
+        $("#batchNo").val(batchNo);
+        $(".batchNo").html(batchNo);
+    })
+</script>
 
-<?php include('templates/_footer.php');?>   
+@@include('./templates/_footer.html') 
