@@ -1,0 +1,26 @@
+{
+  "name": "coffee-supplychain-ui",
+  "version": "1.0.0",
+  "description": "--- **Configuration:**",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sourcetag/coffee-supplychain-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sourcetag/coffee-supplychain-ui/issues"
+  },
+  "homepage": "https://github.com/sourcetag/coffee-supplychain-ui#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.2.2"
+  }
+}
